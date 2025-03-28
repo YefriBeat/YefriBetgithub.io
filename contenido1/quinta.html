@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origen de la Computación</title>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        /* Estilo para resaltar coincidencias */
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+            padding: 2px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <a href="/index.html">INICIO</a>
+        <a href="cuarta.html">ATRÁS</a>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content">
+            <h1>Quinta Generación</h1>
+            <p id="searchText">
+                Se avanzó hacia la integración a muy gran escala (VLSI), aumentando la capacidad y velocidad de procesamiento. 
+                Se desarrollaron microprocesadores de uso específico y se popularizó el uso de interfaces gráficas de usuario (GUI). 
+                Además, se produjo una disminución en los precios, facilitando el acceso masivo a las computadoras y fomentando su uso en diversos sectores.
+            </p>
+            <img src="/imagen/generaciones/sexto.jpg" alt="abaco">
+        </div>
+        <div class="sidebar">
+            <a href="primera.html">PRIMERA GENERACIÓN</a>
+            <a href="segunda.html">SEGUNDA GENERACIÓN</a>
+            <a href="tercera.html">TERCERA GENERACIÓN</a>
+            <a href="cuarta.html">CUARTA GENERACIÓN</a>
+            <a href="quinta.html" style="color: red;">QUINTA GENERACIÓN</a>
+            <a href="sexta.html">SEXTA GENERACIÓN</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("searchInput").addEventListener("input", function() {
+            let searchText = this.value.trim().toLowerCase();
+            let paragraph = document.getElementById("searchText");
+
+            if (!paragraph) return;
+
+            // Restaurar texto original antes de aplicar resaltado
+            let originalText = paragraph.getAttribute("data-original");
+            if (!originalText) {
+                paragraph.setAttribute("data-original", paragraph.innerHTML);
+                originalText = paragraph.innerHTML;
+            }
+            paragraph.innerHTML = originalText;
+
+            if (searchText !== "") {
+                let regex = new RegExp(`(${searchText})`, "gi");
+                paragraph.innerHTML = originalText.replace(regex, `<span class="highlight">$1</span>`);
+            }
+        });
+    </script>
+
+</body>
+</html>

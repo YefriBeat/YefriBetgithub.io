@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origen de la Computación</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Estilo para resaltar coincidencias */
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+            padding: 2px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <a href="/index.html">INICIO</a>
+        <a href="INTEL_AMD.html">ATRÁ</a>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+    </nav>
+    <div class="container"  >
+        <div class="content"id="searchText" >
+            <h1>Otras Arquitectura</h1>
+            <a>RISC (Reduced Instruction Set Computing): Esta arquitectura utiliza un conjunto reducido de instrucciones simples, optimizadas para ser ejecutadas rápidamente. La simplicidad en el conjunto de instrucciones mejora la velocidad de procesamiento.</a>
+        <br><br>
+        <a> CISC (Complex Instruction Set Computing): A diferencia de RISC, CISC tiene un conjunto de instrucciones más complejo, capaz de realizar tareas más complejas en una sola instrucción. Aunque puede ser más eficiente para ciertas tareas, suele ser más lento en otras debido a la complejidad.</a>
+        <br><br>
+        <a>ARM: Es una arquitectura basada en RISC y es muy popular en dispositivos móviles y sistemas embebidos debido a su eficiencia energética y su capacidad para ofrecer buen rendimiento con menor consumo de batería. </a>
+        
+        </div>
+        <div class="sidebar">
+        
+            <a href="/seleccion3.html">Arquitectura Von Neumann</a>
+            <a href="tipos.html">Tipos de Arquitecturas</a>
+            <a href="orientada.html">Arquitectura Orientada a Servicios (SOA):</a>
+            <a href="pipeline.html">Arquitectura en Pipeline:</a>
+            <a href="INTEL_AMD.html">Arquitecturas INTEL Y AMD DE 32 Y 64 BITS </a>
+            <a href="#"style="color: red;">Otras Arquitecturas</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById("searchInput").addEventListener("input", function() {
+            let searchText = this.value.trim().toLowerCase();
+            let paragraph = document.getElementById("searchText");
+
+            if (!paragraph) return;
+
+            // Restaurar texto original antes de aplicar resaltado
+            let originalText = paragraph.getAttribute("data-original");
+            if (!originalText) {
+                paragraph.setAttribute("data-original", paragraph.innerHTML);
+                originalText = paragraph.innerHTML;
+            }
+            paragraph.innerHTML = originalText;
+
+            if (searchText !== "") {
+                let regex = new RegExp(`(${searchText})`, "gi");
+                paragraph.innerHTML = originalText.replace(regex, `<span class="highlight">$1</span>`);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origen de la Computación</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Estilo para resaltar coincidencias */
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+            padding: 2px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <a href="/index.html">INICIO</a>
+        <a href="primera.html">ATRÁ</a>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h1>Segunda Generación</h1>
+            <p id="searchText" >La incorporación de transistores sustituyó a las válvulas de vacío, reduciendo el tamaño y el consumo energético de las computadoras. Se introdujeron lenguajes de programación de alto nivel como COBOL y Fortran, y las máquinas comenzaron a utilizar cintas magnéticas para el almacenamiento de datos. Durante este período, las computadoras comenzaron a tener aplicaciones comerciales además de científicas. </p>
+            <img src="/imagen/generaciones/segunda.jpg" alt="abaco">
+        </div>
+        <div class="sidebar">
+            
+            <a href="primera.html">PRIMERA GENERACIÓN</a>
+            <a href="#" style="color: red;">SEGUNDA GENERACIÓN</a>
+            <a href="tercera.html">TERCERA GENERACIÓN</a>
+            <a href="cuarta.html">CUARTA GENERACIÓN</a>
+            <a href="quinta.html">QUINTA GENERACIÓN</a>
+            <a href="sexta.html">SEXTA GENERACIÓN</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById("searchInput").addEventListener("input", function() {
+            let searchText = this.value.trim().toLowerCase();
+            let paragraph = document.getElementById("searchText");
+
+            if (!paragraph) return;
+
+            // Restaurar texto original antes de aplicar resaltado
+            let originalText = paragraph.getAttribute("data-original");
+            if (!originalText) {
+                paragraph.setAttribute("data-original", paragraph.innerHTML);
+                originalText = paragraph.innerHTML;
+            }
+            paragraph.innerHTML = originalText;
+
+            if (searchText !== "") {
+                let regex = new RegExp(`(${searchText})`, "gi");
+                paragraph.innerHTML = originalText.replace(regex, `<span class="highlight">$1</span>`);
+            }
+        });
+    </script>
+</body>
+</html>

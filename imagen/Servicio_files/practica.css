@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a002c, #3b0066);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    padding: 20px 0;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+h1 {
+    color: #ff00ff;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.subscribe {
+    margin-top: 30px;
+}
+
+button {
+    background: #ff00ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #cc00cc;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.pra1, .pra2 img, .pra3 img {
+    max-width: 500%;
+    max-height: 700px;
+    height: auto;
+}
